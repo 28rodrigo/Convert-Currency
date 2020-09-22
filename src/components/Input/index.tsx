@@ -1,14 +1,15 @@
-import React, { InputHTMLAttributes, useEffect, useState } from 'react'
+import React, { InputHTMLAttributes} from 'react'
 
 import './styles.css'
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement>{
     label:string,
-    currencies:object
+    currencies:object,
+    click:Function
 }
 
 
-const Input:React.FC<InputProps> =({currencies,label, ...rest})=>{
+const Input:React.FC<InputProps> =({currencies,label, click,...rest})=>{
     function handleClick(){
         console.log(currencies)
     }
@@ -18,10 +19,10 @@ const Input:React.FC<InputProps> =({currencies,label, ...rest})=>{
         
         <div className="input-block">
             <label htmlFor="fname">{label}</label>
-            <select id="country" name="country" onClick={handleClick}>
+            <select id="currencies" name="currencies"  onClick={(e)=>click(e)}>
                 {currencies}
              </select>
-             <input type="number" {...rest}></input>
+             <input type='number' step='0.01' value='1.00' placeholder='0.00' {...rest}></input>
         </div>
 
     </>
