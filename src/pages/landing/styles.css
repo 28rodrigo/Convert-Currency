@@ -37,7 +37,20 @@
 .body{
     margin-top: 1rem;
     display: flex;
-    
     align-items: center;
     flex-direction: column;
+}
+.body Input{
+    margin-bottom: 4rem;
+}
+@media(min-width:700px){
+    .body{
+        margin-top: 5rem;
+        display: flex;
+       padding-right: 2rem;
+       padding-left: 2rem;
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: row;
+    }
 }
