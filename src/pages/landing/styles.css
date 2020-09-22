@@ -27,12 +27,21 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 60px;
+    width: 20rem;
+    font-size: 2rem;
+    color: #ffffff;
     margin: 3rem 0rem;
     height: 60px;
     border-radius: 1rem;
     border: #017ee4;
     background-color: #017ee4;
+    font-family: 'Graduate';
+    transition: 0.2s;
+  
+}
+.body button:hover{
+    width: 21rem;
+    height: 65px;
 }
 .body{
     margin-top: 1rem;
@@ -43,6 +52,11 @@
 .body Input{
     margin-bottom: 4rem;
 }
+.btn{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
 @media(min-width:700px){
     .body{
         margin-top: 5rem;
@@ -52,5 +66,9 @@
         align-items: center;
         justify-content: space-around;
         flex-direction: row;
+    }
+    .btn{
+        display: flex;
+        flex-direction: column;
     }
 }

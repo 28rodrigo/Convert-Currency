@@ -19,13 +19,8 @@ function Landing(){
     // eslint-disable-next-line react-hooks/exhaustive-deps
     },[val2,currencies])
     useEffect(()=>{
-        if(cur1==='XXX' || cur2==='XXX')
-            return
-        if(cur1==cur2)
-           { setval2(val1);return}
-
-            convert();
-  
+        if(cur1===cur2)
+            { setval2(val1);return}
     },[val1,cur1,cur2])
     useEffect(()=>{
         getcurrencies();
@@ -41,6 +36,10 @@ function Landing(){
     async function convert() {
         // const response= await api.get('latest?amount=10&from=GBP&to=USD'); 
         try{
+            if(cur1==='XXX' || cur2==='XXX')
+            return
+            if(cur1===cur2)
+            { setval2(val1);return}
          const response= await api.get('latest?amount='+val1.toString()+'&from='+cur1+'&to='+cur2);
          
          console.log(Object.values(response.data.rates)[0])
@@ -75,7 +74,13 @@ function Landing(){
                 <Input click={handleChangeCurrency_1} currencies={currencies} label="From" onChange={(e)=>{setval1(parseInt(e.target.value))}} value={val1}/>
                 
                 <Input  disabled click={handleChangeCurrency_2} currencies={currencies} label="To" onChange={(e)=>{setval2(parseInt(e.target.value))}} value={val2}/>
+                
+                
             </div>
+            <div className="btn">
+                    <button className="button" onClick={convert}>Convert</button>
+                </div>
+            
        </div> 
     )
 }
